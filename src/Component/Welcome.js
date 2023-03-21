@@ -7,10 +7,11 @@ export default class Welcome extends React.Component {
     } 
     
     render () {
+        const age = 20;
         return (
             <>
                 <p>"Welcome {this.props.name}!"</p>
-                <Age age='20' />
+                {age > 18 && <Age age={age} />}
             </>
         )
     }
