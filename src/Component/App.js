@@ -7,7 +7,7 @@ class App extends React.Component {
         return (
             <div>
                 <Hello />
-                <Counter />
+                <Counter initValue={0} interval={1000} incrementAmount={1} />
             </div>
         )
     }
