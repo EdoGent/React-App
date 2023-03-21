@@ -11,7 +11,7 @@ export default class Welcome extends React.Component {
         return (
             <>
                 <p>"Welcome {this.props.name}!"</p>
-                {age > 18 && age < 65 && <Age age={age} />}
+                {age > 18 && age < 65 && this.props.name === 'John' && <Age age={age} />}
             </>
         )
     }
