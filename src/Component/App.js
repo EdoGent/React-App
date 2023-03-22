@@ -1,5 +1,6 @@
 import React from 'react';
 import Hello from './Hello';
+import InteractiveWelcome from './InteractiveWelcome';
 import Welcome from './Welcome';
 
 class App extends React.Component {
@@ -7,7 +8,7 @@ class App extends React.Component {
         return (
             <div>
                 <Hello />
-                <Welcome name={<strong>Jimmy</strong>} />
+                <InteractiveWelcome />
             </div>
         )
     }
