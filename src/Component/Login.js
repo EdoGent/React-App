@@ -1,29 +1,15 @@
 import React from 'react';
 
 export default class Login extends React.Component {
-    state = {
-        username: '',
-        password: '',
-        remember: false
-    }
-
-    handleChangeInput = (event) => {
-        const value = event.target.value;
-        const name = event.target.name;
-        const type = event.target.type;
-        const checked = event.target.checked;
-
-        this.setState({
-            [name]: type === 'checkbox' ? checked : value
-        })
-    }
-    
     render () {
+       const {username, password, remember} = this.props.state;
+       const isDisabled = username === '' || password === '';
         return (
             <>
-                <input name='username' value={this.state.username} onChange={this.handleChangeInput}/>
-                <input name='password' value={this.state.password} type='password' onChange={this.handleChangeInput}/>
-                <input name='remember' type='checkbox' checked={this.state.remember} onChange={this.handleChangeInput}/>
+                <input name='username' value={username} onChange={this.props.onChangeInput}/>
+                <input name='password' value={password} type='password' onChange={this.props.onChangeInput}/>
+                <input name='remember' type='checkbox' checked={remember} onChange={this.props.onChangeInput}/>
+                <button disabled={isDisabled} onClick={() => this.props.onLogin(username, password)}>Login</button>
             </>
         )
     }
