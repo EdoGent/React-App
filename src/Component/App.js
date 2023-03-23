@@ -26,12 +26,20 @@ class App extends React.Component {
         console.log(username, password);
     }
 
+    handleReset = () => {
+        this.setState({
+            username: '',
+            password: '',
+            remember: false
+        })
+    }
+
     render () {
         return (
             <div>
                 <Hello />
                 <InteractiveWelcome />
-                <Login onChangeInput={this.handleChangeInput} state={this.state} onLogin={this.onLogin} />
+                <Login onChangeInput={this.handleChangeInput} state={this.state} onLogin={this.onLogin} onReset={this.handleReset} />
             </div>
         )
     }
