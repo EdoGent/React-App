@@ -1,6 +1,15 @@
 import React from 'react';
 
 export default class UncontrolledLogin extends React.Component { 
+    constructor(props) {
+        super(props)
+        this.inputNameFocus = React.createRef()
+    }
+
+    componentDidMount() {
+        this.inputNameFocus.current.focus()
+    }
+    
     state = {
         username: '',
         password: '',
@@ -35,7 +44,7 @@ export default class UncontrolledLogin extends React.Component {
        const isDisabled = username === '' || password === '';
         return (
             <>
-                <input name='username' value={username} onChange={this.handleChangeInput}/>
+                <input name='username' value={username} onChange={this.handleChangeInput} ref={this.inputNameFocus} />
                 <input name='password' value={password} type='password' onChange={this.handleChangeInput}/>
                 <input name='remember' type='checkbox' checked={remember} onChange={this.handleChangeInput}/>
                 <button disabled={isDisabled} onClick={() => this.onLogin(username, password)}>Login</button>
