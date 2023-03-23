@@ -3,6 +3,7 @@ import Hello from './Hello';
 import InteractiveWelcome from './InteractiveWelcome';
 import Welcome from './Welcome';
 import UncontrolledLogin from './UncontrolledLogin';
+import ToDoList from './ToDoList';
 
 class App extends React.Component {
     render () {
@@ -11,6 +12,7 @@ class App extends React.Component {
                 <Hello />
                 <InteractiveWelcome />
                 <UncontrolledLogin />
+                <ToDoList />
             </div>
         )
     }
