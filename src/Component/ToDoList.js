@@ -28,11 +28,18 @@ export default class ToDoList extends React.Component {
             items: []
         })
     }
+
+    handleRemoveItem = (index) => {
+       const {items} = this.state;
+       this.setState({
+            items: items.filter((item, i) => i !== index)
+       })
+    }
     
     render () {
         return (
             <>
-                <ul>{this.state.items.map ((item, index) => <li key={index}>{item}</li>)}</ul>
+                <ul>{this.state.items.map ((item, index) => <li key={index}>{item} <button onClick={() => this.handleRemoveItem(index)} >Remove the item</button></li>)}</ul>
                 <input name='toDo' value={this.state.newItems} placeholder='add an item' onChange={this.handleInput} />
                 <button onClick={() => this.handleAddItem(this.state.newItems)} >Add the item</button>
                 <button onClick={this.handleResetItem} >Reset the items</button>
