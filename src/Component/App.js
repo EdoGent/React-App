@@ -9,7 +9,7 @@ import Container from './Container';
 class App extends React.Component {
     render () {
         return (
-            <Container>
+            <Container title='This is a title for my Application'>
                 <Hello />
                 <InteractiveWelcome />
                 <UncontrolledLogin />
