@@ -1,12 +1,13 @@
 import React from 'react';
 import Hello from './Hello';
 import InteractiveWelcome from './InteractiveWelcome';
-import Welcome from './Welcome';
+import welcome from './Welcome';
 import UncontrolledLogin from './UncontrolledLogin';
 import ToDoList from './ToDoList';
 import Container from './Container';
 import { LanguageContext } from './LanguageContext';
 import { DisplayLanguage } from './DisplayLanguage';
+import Welcome from './Welcome';
 
 class App extends React.Component {
     state = {
@@ -47,6 +48,7 @@ class App extends React.Component {
                     <option value='italiano' >ITALIAN</option>
                     <option value='english' >ENGLISH</option>
                 </select>
+                <Welcome />
             </Container>
         )
     }
