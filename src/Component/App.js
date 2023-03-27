@@ -5,11 +5,19 @@ import Welcome from './Welcome';
 import UncontrolledLogin from './UncontrolledLogin';
 import ToDoList from './ToDoList';
 import Container from './Container';
+import { LanguageContext } from './LanguageContext';
 
 class App extends React.Component {
     state = {
         items: ['Pulire la casa', 'Lavare la macchina', 'Fare la spesa', 'Andare dal dentista'],
-        newItems: ''
+        newItems: '',
+        language: 'en'    
+    }
+
+    handleLanguageChange = (event) => {
+        this.setState({
+            language: event.target.value
+        })
     }
     
     render () {
@@ -31,6 +39,13 @@ class App extends React.Component {
                     </ul>
                     )} 
                 />
+                <LanguageContext.Provider value={this.state.language}>
+                    <DisplayLanguage />
+                </LanguageContext.Provider>
+                <select value={this.state.lan} onChange={this.handleLanguageChange}>
+                    <option value='it' >ITALIAN</option>
+                    <option value='en' >ENGLISH</option>
+                </select>
             </Container>
         )
     }
