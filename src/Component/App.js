@@ -8,6 +8,7 @@ import Container from './Container';
 import { LanguageContext } from './LanguageContext';
 import { DisplayLanguage } from './DisplayLanguage';
 import Welcome from './Welcome';
+import Sum from './Sum';
 
 class App extends React.Component {
     state = {
@@ -24,6 +25,7 @@ class App extends React.Component {
     
     render () {
         const  {items} = this.state;
+        const numbers = [2, 5, 7];
         return (
             <Container title='This is a title for my Application'>
                 <Hello />
@@ -49,6 +51,7 @@ class App extends React.Component {
                     <option value='english' >ENGLISH</option>
                 </select>
                 <Welcome />
+                <Sum numbers={numbers}/>
             </Container>
         )
     }
