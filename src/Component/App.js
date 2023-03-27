@@ -25,7 +25,6 @@ class App extends React.Component {
     
     render () {
         const  {items} = this.state;
-        const numbers = [2, 5, 7];
         return (
             <Container title='This is a title for my Application'>
                 <Hello />
@@ -51,7 +50,7 @@ class App extends React.Component {
                     <option value='english' >ENGLISH</option>
                 </select>
                 <Welcome />
-                <Sum numbers={numbers}/>
+                <Sum />
             </Container>
         )
     }
