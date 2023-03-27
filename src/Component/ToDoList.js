@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class ToDoList extends React.Component {
     state = {
-        items: ['Pulire la casa', 'Lavare la macchina', 'Fare la spesa', 'Andare dal dentista'],
+        items: this.props,
         newItems: ''
     }
     
@@ -30,21 +30,23 @@ export default class ToDoList extends React.Component {
     }
 
     handleRemoveItem = (index) => {
-       const {items} = this.state;
-       this.setState({
-            items: items.filter((item, i) => i !== index)
-       })
+        const {items} = this.state;
+        this.setState({
+             items: items.filter((item, i) => i !== index)
+        })
     }
     
     render () {
-        return (
-            <>
-                <ul>{this.state.items.map ((item, index) => <li key={index}>{item} <button onClick={() => this.handleRemoveItem(index)} >Remove the item</button></li>)}</ul>
-                <input name='toDo' value={this.state.newItems} placeholder='add an item' onChange={this.handleInput} />
+        const {render} = this.props;
+        const {items} = this.props;
+
+        return render (items, this.handleRemoveItem)
+            //<>
+               
+                {/* <input name='toDo' value={this.state.newItems} placeholder='add an item' onChange={this.handleInput} />
                 <button onClick={() => this.handleAddItem(this.state.newItems)} >Add the item</button>
-                <button onClick={this.handleResetItem} >Reset the items</button>
-            </>
-           
-        )
+                <button onClick={this.handleResetItem} >Reset the items</button> */}
+            //</>
+        
     }
 }
