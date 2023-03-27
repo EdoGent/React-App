@@ -6,12 +6,13 @@ import UncontrolledLogin from './UncontrolledLogin';
 import ToDoList from './ToDoList';
 import Container from './Container';
 import { LanguageContext } from './LanguageContext';
+import { DisplayLanguage } from './DisplayLanguage';
 
 class App extends React.Component {
     state = {
         items: ['Pulire la casa', 'Lavare la macchina', 'Fare la spesa', 'Andare dal dentista'],
         newItems: '',
-        language: 'en'    
+        language: ''    
     }
 
     handleLanguageChange = (event) => {
@@ -43,8 +44,8 @@ class App extends React.Component {
                     <DisplayLanguage />
                 </LanguageContext.Provider>
                 <select value={this.state.lan} onChange={this.handleLanguageChange}>
-                    <option value='it' >ITALIAN</option>
-                    <option value='en' >ENGLISH</option>
+                    <option value='italiano' >ITALIAN</option>
+                    <option value='english' >ENGLISH</option>
                 </select>
             </Container>
         )
