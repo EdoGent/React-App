@@ -10,7 +10,7 @@ function App () {
                 <Hello />
                 <Counter />
                 <GithubUserList />
-                <GithubUser username='EdoGent' />
+                <GithubUser />
             </div>
         )
 }

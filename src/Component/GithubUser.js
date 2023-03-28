@@ -1,12 +1,11 @@
 import React from 'react';
 import useGithubUser from "./useGithubUser";
 
-const GithubUser = ({ username }) => {
-  const data = useGithubUser(username);
-
+const GithubUser = ({ username = 'EdoGent' }) => {
+  const {data, loading} = useGithubUser(username);
   return (
     <div>
-      <h1>{data.name}</h1>
+        {loading ? (<p>Loading...</p>) : (<h1>{data.name}</h1>)} 
     </div>
   );
 };
