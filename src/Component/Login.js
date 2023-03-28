@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default class Login extends React.Component {
-    render () {
-       const {username, password, remember} = this.props.state;
-       const isDisabled = username === '' || password === '';
-        return (
-            <>
-                <input name='username' value={username} onChange={this.props.onChangeInput}/>
-                <input name='password' value={password} type='password' onChange={this.props.onChangeInput}/>
-                <input name='remember' type='checkbox' checked={remember} onChange={this.props.onChangeInput}/>
-                <button disabled={isDisabled} onClick={() => this.props.onLogin(username, password)}>Login</button>
-            </>
-        )
+export default function Login () {
+    const [data, setData] = useState({
+        username: '',
+        password: '',
+        remember: false,
+    })
+
+    function handleInputChange (event) {
+        const {name, type, value, checked} = event.target;
+        
+        setData((data) => {
+            return {
+                ...data,
+                [name] : type === 'checkbox' ? checked : value
+            }
+        })
     }
+
+    const {username, password} = data;
+
+    const onLogin = ({username, password}) => {
+        console.log({username, password});
+    }
+
+    const isDisabled = username === '' || password === ''
+    
+    return (
+        <>
+            <input name='username' value={data.username} onChange={handleInputChange}/>
+            <input name='password' value={data.password} type='password' onChange={handleInputChange}/>
+            <input name='remember' type='checkbox' checked={data.remember} onChange={handleInputChange}/>
+            <button disabled={isDisabled} onClick={() => onLogin({username, password})}>Login</button>
+        </>
+    )
 }
