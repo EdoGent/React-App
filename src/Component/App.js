@@ -3,6 +3,7 @@ import Counter from './Counter';
 import GithubUser from './GithubUser';
 import GithubUserList from './GithubUserList';
 import Hello from './Hello';
+import Login from './Login';
 
 function App () {
         return (
@@ -11,6 +12,7 @@ function App () {
                 <Counter />
                 <GithubUser username='EdoGent' />
                 <GithubUserList />
+                <Login />
             </div>
         )
 }
