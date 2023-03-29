@@ -1,16 +1,17 @@
 import React from 'react';
 import ClickCounter from './ClickCounter';
+import {Route, Router, Routes} from 'react-router-dom';
 import Hello from './Hello';
 
-class App extends React.Component {
-    render () {
+function App () {
         return (
             <div>
-                <Hello />
-                <ClickCounter />
-                </div>
+                <Routes>
+                    <Route path='/' element={<Hello />} />
+                    <Route path='/counter' element={<ClickCounter />} />
+                </Routes>
+            </div>
         )
-    }
 }
 
 export default App;
