@@ -14,6 +14,9 @@ function App () {
                     <Route path='/' element={<Counter />} />
                     <Route path='/users' element={<Hello />} />
                     <Route path='/users/:username' element={<ShowGithubUser />} />
+                    <Route path='*' element={<div><p>Not Found</p>
+                        <Link to='/'>Go Home</Link>
+                    </div>} />
                 </Routes>
             </div>
         )
