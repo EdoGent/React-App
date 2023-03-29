@@ -1,12 +1,10 @@
 import React from "react";
-import Age from "./Age";
+import { useParams } from "react-router-dom";
 
-export default function Welcome ({ name = 'Edoardo'}) {
-    const age = 20;
+export default function Welcome ({name}) {
         return (
             <div className="welcome">
                 <p>"Welcome {name}!"</p>
-                {age > 18 && age < 65 && <Age age={age} />}
             </div>
         )
     }
