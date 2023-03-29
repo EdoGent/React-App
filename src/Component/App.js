@@ -1,14 +1,15 @@
 import React from 'react';
-import Counter from './Counter';
-import GithubUser from './GithubUser';
-import Hello from './Hello';
+import { Routes, Route } from 'react-router-dom';
+import ShowGithubUser from './ShowGithubUser';
+import Hello from './Hello'
 
 function App () {
         return (
             <div>
-                <Hello />
-                <Counter />
-                <GithubUser username='EdoGent' />
+                <Routes>
+                    <Route path='/' element={<Hello />} />
+                    <Route path='/users/:username' element={<ShowGithubUser />} />
+                </Routes>
             </div>
         )
 }
