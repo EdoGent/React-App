@@ -8,8 +8,6 @@ function App () {
         return (
             <div>
                 <Hello />
-                <Counter />
-                <GithubUserList />
                 <GithubUser username='EdoGent' />
             </div>
         )
