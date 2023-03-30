@@ -1,16 +1,19 @@
 import React from 'react';
-import Counter from './Counter';
-import GithubUser from './GithubUser';
 import GithubUserList from './GithubUserList';
 import Hello from './Hello';
+import {Routes, Route, Link} from 'react-router-dom';
+import GithubUser from './GithubUser';
+import ShowGithubUser from './ShowGithubUser';
 
 function App () {
         return (
             <div>
-                <Hello />
-                <Counter />
-                <GithubUser username='EdoGent' />
-                <GithubUserList />
+                <Routes>
+                    <Route path='/' element={<Hello />} />
+                    <Route path='users' element={<GithubUserList />} >
+                       <Route path=':username' element={<ShowGithubUser />} />
+                    </Route>
+                </Routes>
             </div>
         )
 }
