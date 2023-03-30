@@ -11,7 +11,7 @@ const GithubUser = () => {
         {users && (
             <ul>
                 {users.map((user) => (
-                    <li key={user.login}>{user.login}</li>
+                    user.login !== null && <li key={user.login}>{user.login}</li>
                 ))}
             </ul>
         )}

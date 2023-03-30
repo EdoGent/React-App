@@ -6,11 +6,10 @@ const fetcher = (url) => fetch(url).then((res) => res.json())
 
 const useGithubUser = () => {
     const { data, error } = useSWR(`https://api.github.com/users`, fetcher)
-
     return {
         users: data,
-        error,
-        isLoading: !data && !error 
+        error, 
+        isLoading: !data && !error
     }
 }
 
