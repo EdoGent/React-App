@@ -11,7 +11,8 @@ function App () {
                 <Routes>
                     <Route path='/' element={<Hello />} />
                     <Route path='users' element={<GithubUserList />} >
-                       <Route path=':username' element={<ShowGithubUser />} />
+                        <Route index element={<div>Add a user and select it</div>} />
+                        <Route path=':username' element={<ShowGithubUser username='EdoGent' />} />
                     </Route>
                 </Routes>
             </div>
