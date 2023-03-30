@@ -2,7 +2,7 @@ import React from 'react';
 import useGithubUser from "./useGithubUser";
 
 const GithubUser = () => {
-  const {users, error, isLoading} = useGithubUser();
+  const {users, error, isLoading, onFetch} = useGithubUser();
 
   return (
     <div>
@@ -15,6 +15,7 @@ const GithubUser = () => {
                 ))}
             </ul>
         )}
+        <button onClick={onFetch}>ReFetch data</button>
     </div>
   );
 };
